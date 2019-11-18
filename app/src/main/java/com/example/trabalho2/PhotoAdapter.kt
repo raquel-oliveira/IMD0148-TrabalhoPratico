@@ -3,8 +3,10 @@ package com.example.trabalho2
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_photo.view.*
 
 class PhotoAdapter (
@@ -32,11 +34,16 @@ class PhotoAdapter (
 
         holder.txtId.text = photo.id
         holder.txtTitle.text = photo.title
+
+        Picasso.get()
+            .load(photo.thumbnailUrl)
+            .into(holder.image)
     }
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val txtId: TextView = itemView.txt_photoId
         val txtTitle: TextView = itemView.txt_photoTitle
+        val image: ImageView = itemView.imageView_photo
     }
 }
