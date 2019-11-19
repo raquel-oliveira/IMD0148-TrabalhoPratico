@@ -20,8 +20,8 @@ class PhotoAdapter (
         val vh = VH(v)
 
         vh.itemView.setOnClickListener {
-            val message = photos[vh.adapterPosition]
-            callback(message)
+            val photo = photos[vh.adapterPosition]
+            callback(photo)
         }
 
         return vh

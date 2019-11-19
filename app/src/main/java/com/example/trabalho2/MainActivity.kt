@@ -76,12 +76,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<List<Photo>>, response: Response<List<Photo>>) {
-                /*var photos: List<Photo>? = null
-                if(response.isSuccessful){
-                    photos = response.body()
-                    val adapter = PhotoAdapter(photos!!)
-                    rvPhotos.adapter = adapter
-                */
                 if(response.isSuccessful){
                     photos.addAll(response.body()!!)
                     adapter.notifyDataSetChanged()
@@ -91,7 +85,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onPhotoItemClick(photo: Photo) {
-
-        Toast.makeText(this, "TODO: change to notification", Toast.LENGTH_LONG).show()
+        NotificationUtils.simpleNotification(this, photo)
     }
 }
